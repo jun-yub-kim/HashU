@@ -52,7 +52,7 @@ def is_sess_attached(request):  # 현재 로그인 한 user면 is_sess = True
     is_sess = True
   return is_sess
 
-def get_user_inst(request):      # 나중에 해당 user가 그 user가 맞는지 확인하여 그  user 정보 한 줄을 디비에서 빼와주는 함수.
+def get_user_inst(request):      # 나중에 해당 user가 그 user가 맞는지 확인하여 그  user 정보 한 줄을 디비에서 빼와주는 함수, 해당 유저의 게시물 및 도장 table 생성할 때에 연결해주면 됨. 
   if is_sess_attached(request):
     email = request.session['user_email']
     queryset = User_info.objects.filter(user_email = email)
